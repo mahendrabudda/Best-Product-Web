@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ================= PAGE BACKGROUND ================= */
+.login-page {
+  min-height: 100vh;
+  /* Using your requested light grey (211, 211, 211) for the outer background */
+  background: rgb(211, 211, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  /* Using your requested dark grey (105, 105, 105) for the main box */
+  background-color: rgb(105, 105, 105);
+  border-radius: 25px;
+  /* Shadow using the dark grey tone for depth */
+  box-shadow: 0 20px 60px rgba(105, 105, 105, 0.4);
+  position: relative;
+  overflow: hidden;
+  width: 780px;
+  max-width: 100%;
+  min-height: 480px;
+  color: #fff;
+}
+
+/* ================= TEXT ================= */
+.container h1 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.container span {
+  font-size: 12px;
+  color: #e0e0e0; /* Off-white for readability */
+}
+
+.container a {
+  color: #ffffff;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.container a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ================= BUTTON ================= */
+.container button {
+  /* Black button for high contrast against the grey */
+  background-color: #000000;
+  color: white;
+  font-size: 12px;
+  padding: 12px 45px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.container button:hover {
+  background-color: #333333;
+  transform: scale(1.02);
+}
+
+.container button.hidden {
+  background: transparent;
+  border: 2px solid #ffffff;
+}
+
+.container button.hidden:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ================= FORMS ================= */
+.container form {
+  /* Matching the form background to the container (105, 105, 105) */
+  background-color: rgb(105, 105, 105);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+.container input {
+  /* Slightly darker or lighter grey for input fields to create depth */
+  background-color: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 8px 0;
+  padding: 12px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  color: #fff;
+  outline: none;
+}
+
+.container input::placeholder {
+  color: #ccc;
+}
+
+/* ================= FORM CONTAINERS ================= */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.login-page.active .sign-in {
+  transform: translateX(100%);
+}
+
+.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.login-page.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* ================= SOCIAL ICONS ================= */
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  border: 1px solid #ffffff;
+  border-radius: 50%; /* Circle looks cleaner for BW themes */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+}
+
+.social-icons a:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* ================= TOGGLE ================= */
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+.login-page.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  /* Grayscale gradient from pure black to dark grey */
+  background: linear-gradient(135deg, #000000, rgb(105, 105, 105));
+  color: #fff;
+  position: relative;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.login-page.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.login-page.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+}
+
+.toggle-panel p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
