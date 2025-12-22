@@ -39,7 +39,7 @@ app.post("/compare", async (req, res) => {
 
   const site = detectSite(productUrl);
 
-  if (site !== "amazon") {
+  if (site !== "flipkart") {
     return res.json({
       message: "Site detected",
       site,
@@ -54,6 +54,8 @@ app.post("/compare", async (req, res) => {
     product
   });
 });
+
+
 
 
 
