@@ -1,3 +1,4 @@
+
 import express from "express"
 
 import cors from "cors"
@@ -54,8 +55,6 @@ app.post("/compare", async (req, res) => {
     product
   });
 });
-
-
 
 
 
